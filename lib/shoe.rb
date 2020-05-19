@@ -1,11 +1,20 @@
+require 'pry'
+
 class Shoe
-  attr_accessor :color, :size, :material, :condition
-  attr_reader :brand
+  attr_accessor :color, :size, :material, :condition, :brand
+  # attr_reader 
 
   def initialize(brand)
     @brand = brand
+    if !BRANDS.include?(brand)
+      BRANDS << brand
+    end
+    # binding.pry
   end
 
+  BRANDS = []
+
+  
   def cobble
     self.condition = "new"
     puts "Your shoe is as good as new!"
